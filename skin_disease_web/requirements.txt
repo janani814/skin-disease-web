@@ -3,3 +3,5 @@ gunicorn
 pillow
 numpy
 reportlab
+torch++2.2.2
+torchvision==0.17.2
