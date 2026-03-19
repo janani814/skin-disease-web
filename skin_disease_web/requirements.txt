@@ -1,6 +1,4 @@
 flask
-ultralytics
-torch
-Pillow
-reportlab
 gunicorn
+pillow
+numpy
