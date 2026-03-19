@@ -1,8 +1,5 @@
-flask==3.0.3
-gunicorn==22.0.0
-ultralytics==8.2.103
-pillow==10.4.0
-numpy==1.26.4
-opencv-python-headless==4.10.0.84
-torch==2.0.0
-torchvision==0.17.2
+flask
+gunicorn
+pillow
+numpy
+reportlab
