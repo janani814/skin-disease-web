@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skin Disease Detection</title>
+</head>
+
+<body>
+
+<h2>Skin Disease Detection</h2>
+
+<form method="POST" action="/predict" enctype="multipart/form-data">
+
+Name:<br>
+<input type="text" name="name" required><br><br>
+
+Age:<br>
+<input type="number" name="age" required><br><br>
+
+Upload Image:<br>
+<input type="file" name="image"><br><br>
+
+<h3>OR Capture Image</h3>
+
+<video id="video" width="300" height="200" autoplay></video><br>
+<button type="button" onclick="capture()">Capture</button>
+
+<input type="hidden" name="image_data" id="image_data">
+
+<br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+<script>
+
+const video = document.getElementById("video");
+
+navigator.mediaDevices.getUserMedia({video:true})
+.then(stream => {video.srcObject = stream});
+
+function capture(){
+
+let canvas = document.getElementById("canvas");
+let context = canvas.getContext("2d");
+
+canvas.width = video.videoWidth;
+canvas.height = video.videoHeight;
+
+context.drawImage(video,0,0);
+
+let data = canvas.toDataURL("image/png");
+
+document.getElementById("image_data").value = data;
+
+alert("Image Captured");
+
+}
+
+</script>
+
+</body>
+</html>
